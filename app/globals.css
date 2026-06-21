@@ -13,7 +13,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 104px;
+  scroll-padding-top: 72px;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 104px;
+  }
 }
 
 body {
@@ -112,9 +118,23 @@ section {
   box-shadow: 0 12px 28px rgba(7, 20, 54, 0.08);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 480px) {
   .site-container {
-    width: min(100% - 32px, 1240px);
+    width: min(100% - 40px, 1240px);
+  }
+
+  .blue-button,
+  .outline-button {
+    width: 100%;
+    min-height: 46px;
+    padding-inline: 16px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 720px) {
+  .site-container {
+    width: min(100% - 48px, 1240px);
   }
 
   .blue-button,

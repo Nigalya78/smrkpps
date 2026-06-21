@@ -20,10 +20,34 @@ export default function Navbar() {
 
   const activePath = pathname === "/" ? "/" : `/${pathname.split("/")[1]}`;
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace('/#', '');
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setOpen(false);
+  };
+
+  const handleNavigate = (href: string) => {
+    const id = href.replace('/#', '');
+    window.location.href = '/';
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+    setOpen(false);
+  };
+
+  const isHomePage = pathname === '/';
+
   return (
     <header className="sticky top-0 z-50 bg-[var(--smrk-blue)] text-white shadow-[0_6px_24px_rgba(3,18,55,0.16)]">
       <div className="site-container flex h-[72px] items-center justify-between md:h-[104px]">
-        <Link href="/" className="flex items-center shrink-0">
+        <Link href="/" className="flex items-center shrink-0 transition-transform duration-300 hover:scale-105">
   <Image
     src="/logo.png"
     alt="SMRK"
@@ -36,69 +60,202 @@ export default function Navbar() {
       object-contain
       sm:h-[60px]
       md:h-[90px]
+      transition-transform duration-300
     "
   />
 </Link>
         <nav className="hidden items-center gap-8 text-[13px] font-black uppercase tracking-[0.01em] xl:gap-11 lg:flex">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={
-                link.active === activePath
-                  ? "nav-link nav-link-active py-10 text-white"
-                  : "nav-link py-10 text-white hover:opacity-80 transition"
-              }
-            >
-              <span className="inline-flex items-center gap-1.5">
-                {link.label}
-                {link.href === "/products" && <ChevronDown size={12} strokeWidth={3} />}
-              </span>
-            </Link>
-          ))}
+          {links.map((link) => {
+            const isHashLink = link.href.startsWith('/#');
+            return isHashLink ? (
+              isHomePage ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className={
+                    link.active === activePath
+                      ? "nav-link nav-link-active py-10 text-white"
+                      : "nav-link py-10 text-white hover:opacity-80 transition-all duration-300"
+                  }
+                >
+                  <span className="inline-flex items-center gap-1.5">
+                    {link.label}
+                    {link.href === "/products" && <ChevronDown size={12} strokeWidth={3} className="transition-transform duration-300" />}
+                  </span>
+                </a>
+              ) : (
+                <a
+                  key={link.href}
+                  href="/"
+                  onClick={() => handleNavigate(link.href)}
+                  className={
+                    link.active === activePath
+                      ? "nav-link nav-link-active py-10 text-white"
+                      : "nav-link py-10 text-white hover:opacity-80 transition-all duration-300"
+                  }
+                >
+                  <span className="inline-flex items-center gap-1.5">
+                    {link.label}
+                    {link.href === "/products" && <ChevronDown size={12} strokeWidth={3} className="transition-transform duration-300" />}
+                  </span>
+                </a>
+              )
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={
+                  link.active === activePath
+                    ? "nav-link nav-link-active py-10 text-white"
+                    : "nav-link py-10 text-white hover:opacity-80 transition-all duration-300"
+                }
+              >
+                <span className="inline-flex items-center gap-1.5">
+                  {link.label}
+                  {link.href === "/products" && <ChevronDown size={12} strokeWidth={3} className="transition-transform duration-300" />}
+                </span>
+              </Link>
+            );
+          })}
         </nav>
 
-        <Link
-          href="/#contact"
-          className="hidden min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-[var(--smrk-blue)] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] md:inline-flex"
-        >
-          Get a Quote <ArrowRight size={20} />
-        </Link>
+        {isHomePage ? (
+          <a
+            href="/#contact"
+            onClick={(e) => handleScroll(e, '/#contact')}
+            className="hidden min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] md:inline-flex"
+          >
+            Get a Quote <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        ) : (
+          <a
+            href="/"
+            onClick={() => handleNavigate('/#contact')}
+            className="hidden min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] md:inline-flex"
+          >
+            Get a Quote <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        )}
 
         <button
           aria-label={open ? "close menu" : "open menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
-          className="grid h-10 w-10 place-items-center rounded-full border border-white/25 bg-white/10 text-white lg:hidden"
+          className="group grid h-10 w-10 place-items-center rounded-full border-2 border-white/30 bg-white/10 text-white transition-all duration-300 hover:border-[var(--smrk-blue)] hover:bg-[var(--smrk-blue)] hover:shadow-[0_0_20px_rgba(6,27,74,0.4)] hover:scale-110 lg:hidden"
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X className="transition-transform duration-300 group-hover:rotate-90" /> : <Menu className="transition-transform duration-300 group-hover:scale-110" />}
         </button>
       </div>
 
+      {/* Backdrop */}
       {open && (
-        <nav className="border-t border-white/10 bg-[#061b4a]/98 px-4 py-4 text-[13px] font-extrabold uppercase shadow-xl lg:hidden">
-          <div className="mx-auto grid max-w-[1240px] gap-1">
-            {links.map((link) => (
-              <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="flex min-h-11 items-center justify-between rounded-md px-3 text-white transition hover:bg-white/10"
-            >
-                {link.label}
-                {link.href === "/products" && <ChevronDown size={13} strokeWidth={3} />}
-              </Link>
-            ))}
-            <Link
-              href="/#contact"
-              onClick={() => setOpen(false)}
-              className="mt-3 inline-flex min-h-11 items-center justify-center gap-3 rounded-full border border-white/35 bg-white/10 px-4"
-            >
-              Get a Quote <ArrowRight size={16} />
-            </Link>
-          </div>
-        </nav>
+        <div
+          className="fixed inset-0 z-40 bg-black/50 lg:hidden animate-in fade-in duration-300"
+          onClick={() => setOpen(false)}
+        />
       )}
+
+      {/* Side Drawer */}
+      <div
+        className={`fixed inset-y-0 right-0 z-50 w-[280px] bg-white shadow-2xl lg:hidden transform transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <div className="flex h-full flex-col p-6">
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="SMRK"
+                width={80}
+                height={27}
+                className="h-8 w-auto object-contain"
+              />
+              <span className="text-[16px] font-black uppercase tracking-wider text-[#061b4a]">SMRKPPS</span>
+            </div>
+            <button
+              onClick={() => setOpen(false)}
+              className="grid h-10 w-10 place-items-center rounded-full border border-gray-300 bg-gray-100 text-gray-600 transition-all duration-300 hover:bg-gray-200 hover:scale-110"
+              aria-label="close menu"
+            >
+              <X className="transition-transform duration-300" />
+            </button>
+          </div>
+
+          <nav className="flex flex-col gap-2">
+            {links.map((link, index) => {
+              const isHashLink = link.href.startsWith('/#');
+              return isHashLink ? (
+                isHomePage ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleScroll(e, link.href)}
+                    className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-extrabold uppercase transition-all duration-300 hover:bg-gray-100 ${
+                      link.active === activePath
+                        ? 'bg-[var(--smrk-blue)]/10 text-[var(--smrk-blue)]'
+                        : 'text-gray-800'
+                    }`}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    {link.label}
+                    {link.href === "/products" && <ChevronDown size={13} strokeWidth={3} />}
+                  </a>
+                ) : (
+                  <a
+                    key={link.href}
+                    href="/"
+                    onClick={() => handleNavigate(link.href)}
+                    className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-extrabold uppercase transition-all duration-300 hover:bg-gray-100 ${
+                      link.active === activePath
+                        ? 'bg-[var(--smrk-blue)]/10 text-[var(--smrk-blue)]'
+                        : 'text-gray-800'
+                    }`}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    {link.label}
+                    {link.href === "/products" && <ChevronDown size={13} strokeWidth={3} />}
+                  </a>
+                )
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-extrabold uppercase transition-all duration-300 hover:bg-gray-100 ${
+                    link.active === activePath
+                      ? 'bg-[var(--smrk-blue)]/10 text-[var(--smrk-blue)]'
+                      : 'text-gray-800'
+                  }`}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  {link.label}
+                  {link.href === "/products" && <ChevronDown size={13} strokeWidth={3} />}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="mt-auto">
+            {isHomePage ? (
+              <a
+                href="/#contact"
+                onClick={(e) => handleScroll(e, '/#contact')}
+                className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full border-2 border-[#061b4a] bg-[#061b4a] px-4 text-[14px] font-black uppercase text-white transition-all duration-300 hover:bg-[#061b4a]/90"
+              >
+                Get a Quote <ArrowRight size={16} />
+              </a>
+            ) : (
+              <a
+                href="/"
+                onClick={() => handleNavigate('/#contact')}
+                className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full border-2 border-[#061b4a] bg-[#061b4a] px-4 text-[14px] font-black uppercase text-white transition-all duration-300 hover:bg-[#061b4a]/90"
+              >
+                Get a Quote <ArrowRight size={16} />
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

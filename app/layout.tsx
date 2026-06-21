@@ -1,9 +1,10 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Preloader from "../components/Preloader";
 
 export const metadata = {
-  title: "SMRK PPS",
+  title: "SMRK - Printing and Packaging Materials Suppliers",
   description: "Packaging Solutions",
 };
 
@@ -24,7 +25,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-
+        <Preloader />
         <Navbar />
 
         {children}

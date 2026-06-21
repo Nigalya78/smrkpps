@@ -10,60 +10,118 @@ import {
   Cuboid,
   Package,
   PackageCheck,
-  Search,
-  Settings2,
   ShoppingBag,
   Tags,
 } from "lucide-react";
 
 const products = [
   {
-    title: "Labels & Stickers",
-    image: "/products/img4.jpg",
-    desc: "High-quality labels for branding, information & compliance.",
+    title: "Product 1",
+    image: "/products/img1.png",
+    desc: "High-quality packaging solution.",
     icon: ClipboardList,
   },
   {
-    title: "Corrugated Boxes",
-    image: "/products/img13.jpg",
-    desc: "Strong, durable & eco-friendly packaging for every need.",
+    title: "Product 2",
+    image: "/products/img2.jpg",
+    desc: "Durable packaging solution.",
     icon: Box,
   },
   {
-    title: "Mono Cartons",
-    image: "/products/img5.png",
-    desc: "Premium cartons for pharma, cosmetics & retail products.",
+    title: "Product 3",
+    image: "/products/img3.jpg",
+    desc: "Premium packaging solution.",
     icon: Package,
   },
   {
-    title: "Flexible Packaging",
-    image: "/products/img15.jpg",
-    desc: "Versatile, lightweight & protective packaging.",
+    title: "Product 4",
+    image: "/products/img4.jpg",
+    desc: "Versatile packaging solution.",
     icon: PackageCheck,
   },
   {
-    title: "Custom Printed Packaging",
-    image: "/products/img1.png",
-    desc: "Eye-catching prints that elevate your brand identity.",
+    title: "Product 5",
+    image: "/products/img5.png",
+    desc: "Custom packaging solution.",
     icon: Tags,
   },
   {
-    title: "Paper Bags",
-    image: "/products/img18.jpg",
-    desc: "Eco-friendly paper bags for retail & gifting.",
+    title: "Product 6",
+    image: "/products/img6.png",
+    desc: "Eco-friendly packaging solution.",
     icon: ShoppingBag,
   },
   {
-    title: "Retail Packaging",
-    image: "/products/img6.png",
-    desc: "Attractive & functional packaging for retail products.",
+    title: "Product 7",
+    image: "/products/img7.jpg",
+    desc: "Retail packaging solution.",
     icon: Briefcase,
   },
   {
-    title: "Industrial Packaging",
-    image: "/products/img9.jpg",
-    desc: "Heavy-duty packaging solutions for industrial applications.",
+    title: "Product 8",
+    image: "/products/img8.jpg",
+    desc: "Industrial packaging solution.",
     icon: Cog,
+  },
+  {
+    title: "Product 9",
+    image: "/products/img9.jpg",
+    desc: "Protective packaging solution.",
+    icon: ClipboardList,
+  },
+  {
+    title: "Product 10",
+    image: "/products/img10.jpg",
+    desc: "Lightweight packaging solution.",
+    icon: Box,
+  },
+  {
+    title: "Product 11",
+    image: "/products/img11.jpg",
+    desc: "Custom printed packaging solution.",
+    icon: Package,
+  },
+  {
+    title: "Product 12",
+    image: "/products/img12.jpg",
+    desc: "Flexible packaging solution.",
+    icon: PackageCheck,
+  },
+  {
+    title: "Product 13",
+    image: "/products/img13.jpg",
+    desc: "Corrugated packaging solution.",
+    icon: Tags,
+  },
+  {
+    title: "Product 14",
+    image: "/products/img14.jpg",
+    desc: "Paper packaging solution.",
+    icon: ShoppingBag,
+  },
+  {
+    title: "Product 15",
+    image: "/products/img15.jpg",
+    desc: "Sustainable packaging solution.",
+    icon: Briefcase,
+  },
+  {
+    title: "Product 16",
+    image: "/products/img16.jpg",
+    desc: "Heavy-duty packaging solution.",
+    icon: Cog,
+  },
+  {
+    title: "Product 17",
+    image: "/products/img17.jpg",
+    desc: "Premium quality packaging solution.",
+    icon: ClipboardList,
+  },
+  {
+    title: "Product 18",
+    image: "/products/img18.jpg",
+    desc: "Complete packaging solution.",
+    icon: Box,
   },
 ];
 
@@ -80,63 +138,35 @@ export default function ProductsPage() {
             <span className="font-black text-[var(--smrk-blue)]">Products</span>
           </nav>
 
-          <div className="mt-8 max-w-[620px]">
+          <div className="mt-8 max-w-[620px] text-center md:text-left">
             <h1 className="text-[46px] font-black leading-none tracking-[-0.02em] text-[var(--smrk-navy)] md:text-[64px]">
               Products
             </h1>
-            <div className="mt-5 h-[3px] w-[58px] bg-[var(--smrk-blue)]" />
+            <div className="mt-5 h-[3px] w-[58px] bg-[var(--smrk-blue)] mx-auto md:mx-0" />
             <p className="mt-5 text-[16px] font-medium leading-8 text-[var(--smrk-ink)]">
               Explore our complete range of high-quality packaging solutions designed to protect, promote, and elevate your brand.
             </p>
           </div>
 
-          <div className="mt-8 flex flex-col gap-4 md:flex-row">
-            <label className="flex min-h-[58px] w-full max-w-[560px] items-center gap-4 rounded-[7px] border border-[var(--smrk-line)] bg-white px-5 text-[14px] font-medium text-[var(--smrk-muted)] shadow-[0_8px_24px_rgba(7,20,54,0.04)]">
-              <Search size={21} className="text-[var(--smrk-navy)]" strokeWidth={1.8} />
-              <input
-                type="search"
-                aria-label="Search products"
-                placeholder="Search products..."
-                className="w-full bg-transparent outline-none placeholder:text-[var(--smrk-muted)]"
-              />
-            </label>
-            <button className="flex min-h-[58px] w-full items-center justify-between gap-5 rounded-[7px] border border-[var(--smrk-line)] bg-white px-5 text-[14px] font-semibold text-[var(--smrk-ink)] shadow-[0_8px_24px_rgba(7,20,54,0.04)] md:w-[200px]">
-              <span className="inline-flex items-center gap-3">
-                <Settings2 size={19} className="text-[var(--smrk-blue)]" strokeWidth={1.8} />
-                All Categories
-              </span>
-              <ChevronDown size={16} />
-            </button>
-          </div>
         </div>
       </section>
 
       <section className="bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_45%)] pb-8 md:pb-10">
         <div className="site-container">
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {products.map((product) => {
-              const Icon = product.icon;
-              return (
-                <article
-                  key={product.title}
-                  className="group overflow-hidden rounded-[8px] border border-[var(--smrk-line)] bg-white shadow-[0_10px_30px_rgba(7,20,54,0.04)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(7,20,54,0.12)]"
-                >
-                  <div className="relative h-[235px] bg-[linear-gradient(180deg,#ffffff_0%,#f6f9fd_100%)]">
-                    <Image src={product.image} alt={product.title} fill className="object-contain p-7" sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw" />
-                  </div>
-                  <div className="relative px-6 pb-7 pt-8">
-                    <div className="absolute -top-8 left-6 grid h-[54px] w-[54px] place-items-center rounded-full border border-[var(--smrk-line)] bg-white text-[var(--smrk-blue)] shadow-[0_8px_18px_rgba(7,20,54,0.08)]">
-                      <Icon size={25} strokeWidth={1.7} />
-                    </div>
-                    <h2 className="text-[18px] font-black leading-tight text-[var(--smrk-navy)]">{product.title}</h2>
-                    <p className="mt-4 min-h-[56px] text-[14px] font-medium leading-7 text-[var(--smrk-ink)]">{product.desc}</p>
-                    <Link href="/#contact" className="mt-4 inline-flex items-center gap-2 text-[13px] font-black text-[var(--smrk-blue)]">
-                      View Products <ArrowRight size={15} />
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
+          <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {products.map((product) => (
+              <article
+                key={product.title}
+                className="group overflow-hidden rounded-[8px] border border-[var(--smrk-line)] bg-white shadow-[0_10px_30px_rgba(7,20,54,0.04)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(7,20,54,0.12)]"
+              >
+                <div className="relative h-[235px] bg-[linear-gradient(180deg,#ffffff_0%,#f6f9fd_100%)]">
+                  <Image src={product.image} alt={product.title} fill className="object-contain p-7" sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw" />
+                </div>
+                <div className="px-6 pb-6 pt-6">
+                  <h2 className="text-[18px] font-black leading-tight text-[var(--smrk-navy)]">{product.title}</h2>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
