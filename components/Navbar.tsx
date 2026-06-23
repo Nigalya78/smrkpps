@@ -45,7 +45,7 @@ export default function Navbar() {
   const isHomePage = pathname === '/';
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--smrk-blue)] text-white shadow-[0_6px_24px_rgba(3,18,55,0.16)]">
+    <header className="sticky top-0 z-50 navy-gradient text-white shadow-[0_6px_24px_rgba(3,18,55,0.16)]">
       <div className="site-container flex h-[72px] items-center justify-between md:h-[104px]">
         <Link href="/" className="flex items-center shrink-0 transition-transform duration-300 hover:scale-105">
   <Image
@@ -124,7 +124,7 @@ export default function Navbar() {
           <a
             href="/#contact"
             onClick={(e) => handleScroll(e, '/#contact')}
-            className="hidden min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] md:inline-flex"
+            className="hidden lg:inline-flex min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)]"
           >
             Get a Quote <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
@@ -132,7 +132,7 @@ export default function Navbar() {
           <a
             href="/"
             onClick={() => handleNavigate('/#contact')}
-            className="hidden min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] md:inline-flex"
+            className="hidden lg:inline-flex min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)]"
           >
             Get a Quote <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>

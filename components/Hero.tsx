@@ -59,22 +59,22 @@ export default function Hero() {
         className="site-container relative z-10 flex flex-col"
       >
         {/* Main hero content */}
-        <div className="flex flex-1 items-start py-6 md:py-8 lg:py-10 lg:grid lg:grid-cols-[1fr_auto] lg:gap-12 xl:gap-16">
-          <div className="w-full max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
+        <div className="flex flex-1 items-start py-8 md:py-8 lg:py-10 lg:grid lg:grid-cols-[1fr_auto] lg:gap-12 xl:gap-16">
+          <div className="w-full max-w-3xl mx-auto lg:mx-0 text-center lg:text-left px-4 sm:px-0">
             {/* Pre-heading */}
-            <p className={`text-xs font-semibold uppercase tracking-wider text-gray-600 md:text-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <p className={`text-[10px] font-semibold uppercase tracking-wider text-gray-600 md:text-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               Premium Packaging Solutions
             </p>
 
             {/* Heading */}
             <h1 className={`mt-3 font-extrabold uppercase leading-[1.1] tracking-tight transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              <span className="text-black" style={{ fontSize: "clamp(1.5rem, 4.5vw, 3.5rem)" }}>
+              <span className="text-black" style={{ fontSize: "clamp(1.25rem, 5vw, 3.5rem)" }}>
                 Packaging That
               </span>
               <br />
               <span
                 className="text-[var(--smrk-blue)]"
-                style={{ fontSize: "clamp(1.5rem, 4.5vw, 3.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem, 5vw, 3.5rem)" }}
               >
                 Elevates Your Brand
               </span>
@@ -86,23 +86,23 @@ export default function Hero() {
 
             {/* Description */}
             <p
-              className={`mt-4 max-w-xl leading-relaxed text-gray-600 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ fontSize: "clamp(0.875rem, 1.2vw, 1rem)" }}
+              className={`mt-4 max-w-sm mx-auto leading-relaxed text-gray-600 transition-all duration-700 delay-300 sm:max-w-xl lg:mx-0 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+              style={{ fontSize: "clamp(0.8rem, 1.2vw, 1rem)" }}
             >
               Custom printing, labeling, and packaging solutions designed to make every product stand out.
             </p>
 
             {/* Buttons */}
-            <div className={`mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <div className={`mt-6 flex flex-col sm:flex-row gap-3 items-center justify-center sm:justify-start transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               <Link
                 href="/products"
-                className="inline-flex min-h-[46px] items-center justify-center gap-3 rounded-lg bg-[var(--smrk-blue)] px-5 text-[12px] font-bold uppercase tracking-wide text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(6,27,74,0.3)] sm:min-h-[50px] sm:px-7 sm:text-[13px]"
+                className="inline-flex min-h-[46px] w-full sm:w-auto items-center justify-center gap-3 rounded-lg bg-[var(--smrk-blue)] px-5 text-[11px] font-bold uppercase tracking-wide text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(6,27,74,0.3)] sm:min-h-[50px] sm:px-7 sm:text-[13px] whitespace-nowrap"
               >
                 Explore Products <ArrowRight size={16} />
               </Link>
               <Link
                 href="/#contact"
-                className="inline-flex min-h-[46px] items-center justify-center gap-3 rounded-lg border-2 border-[var(--smrk-blue)] bg-white px-5 text-[12px] font-bold uppercase tracking-wide text-[var(--smrk-blue)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--smrk-blue)] hover:text-white sm:min-h-[50px] sm:px-7 sm:text-[13px]"
+                className="inline-flex min-h-[46px] w-full sm:w-auto items-center justify-center gap-3 rounded-lg border-2 border-[var(--smrk-blue)] bg-white px-5 text-[11px] font-bold uppercase tracking-wide text-[var(--smrk-blue)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--smrk-blue)] hover:text-white sm:min-h-[50px] sm:px-7 sm:text-[13px] whitespace-nowrap"
               >
                 Get a Quote <ArrowRight size={16} />
               </Link>

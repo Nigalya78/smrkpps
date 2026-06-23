@@ -41,17 +41,17 @@ export default function WhyChooseUs() {
           Built on Quality. Driven by Trust.
         </h2>
 
-        <div className="mt-11 grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 lg:gap-y-9">
+        <div className="mt-11 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:gap-y-9">
           {features.map((f, index) => {
             const Icon = f.icon;
             return (
               <div key={f.title} className={`rounded-2xl bg-white p-4 shadow-[0_4px_16px_rgba(6,27,74,0.08)] sm:p-5 lg:border-r lg:border-[var(--smrk-line)] lg:bg-transparent lg:shadow-none lg:p-4 lg:last:border-r-0 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: `${200 + index * 100}ms` }}>
-                <div className="flex items-start gap-3 sm:flex-col sm:text-center lg:flex-row lg:text-left">
+                <div className="flex items-center gap-3 text-left">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--smrk-blue)]/10 sm:h-12 sm:w-12 lg:h-auto lg:w-auto lg:bg-transparent transition-all duration-300 hover:bg-[var(--smrk-blue)]/20">
                     <Icon className="text-[var(--smrk-blue)] h-5 w-5 sm:h-8 sm:w-8 lg:h-[51px] lg:w-[51px]" strokeWidth={1.65} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-sm font-black sm:mt-4 sm:text-[13px] lg:mt-0 lg:text-[13px]">{f.title}</h3>
+                    <h3 className="text-sm font-black sm:text-[13px] lg:text-[13px]">{f.title}</h3>
                     <p className="mt-1 text-xs text-gray-600 leading-relaxed sm:mt-3 sm:text-[12px] lg:mt-3 lg:max-w-[160px] lg:font-medium lg:leading-[1.65] lg:text-[var(--smrk-ink)]">{f.desc}</p>
                   </div>
                 </div>

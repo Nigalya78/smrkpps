@@ -153,7 +153,7 @@ export default function ProductsPage() {
 
       <section className="bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_45%)] pb-8 md:pb-10">
         <div className="site-container">
-          <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {products.map((product) => (
               <article
                 key={product.title}
