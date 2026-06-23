@@ -76,9 +76,8 @@ section {
   color: var(--smrk-blue);
   font-size: 12px;
   line-height: 1;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: 0;
-  text-transform: uppercase;
 }
 
 .blue-button,
@@ -91,8 +90,8 @@ section {
   padding: 0 28px;
   border-radius: 4px;
   font-size: 15px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
@@ -125,7 +124,7 @@ section {
 
   .blue-button,
   .outline-button {
-    width: 100%;
+    width: auto;
     min-height: 46px;
     padding-inline: 16px;
     font-size: 13px;
@@ -139,7 +138,7 @@ section {
 
   .blue-button,
   .outline-button {
-    width: 100%;
+    width: auto;
     min-height: 46px;
     padding-inline: 16px;
     font-size: 13px;

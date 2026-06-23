@@ -8,10 +8,10 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 
 const links = [
   { href: "/#home", label: "Home", active: "/" },
-  { href: "/#about", label: "About Us" },
-  { href: "/#why-choose-us", label: "Why Choose Us" },
+  { href: "/#about", label: "About Us", page: "/about", active: "/about" },
+  { href: "/#why-choose-us", label: "Why Choose Us", page: "/why-choose-us", active: "/why-choose-us" },
   { href: "/products", label: "Products", active: "/products" },
-  { href: "/#contact", label: "Contact Us" },
+  { href: "/#contact", label: "Contact Us", page: "/contact", active: "/contact" },
 ];
 
 export default function Navbar() {
@@ -27,18 +27,6 @@ export default function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setOpen(false);
-  };
-
-  const handleNavigate = (href: string) => {
-    const id = href.replace('/#', '');
-    window.location.href = '/';
-    setTimeout(() => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
     setOpen(false);
   };
 
@@ -64,7 +52,7 @@ export default function Navbar() {
     "
   />
 </Link>
-        <nav className="hidden items-center gap-8 text-[13px] font-black uppercase tracking-[0.01em] xl:gap-11 lg:flex">
+        <nav className="hidden items-center gap-8 text-[13px] font-semibold tracking-[0.01em] xl:gap-11 lg:flex">
           {links.map((link) => {
             const isHashLink = link.href.startsWith('/#');
             return isHashLink ? (
@@ -85,10 +73,10 @@ export default function Navbar() {
                   </span>
                 </a>
               ) : (
-                <a
+                <Link
                   key={link.href}
-                  href="/"
-                  onClick={() => handleNavigate(link.href)}
+                  href={link.page || "/"}
+                  onClick={() => setOpen(false)}
                   className={
                     link.active === activePath
                       ? "nav-link nav-link-active py-10 text-white"
@@ -99,12 +87,13 @@ export default function Navbar() {
                     {link.label}
                     {link.href === "/products" && <ChevronDown size={12} strokeWidth={3} className="transition-transform duration-300" />}
                   </span>
-                </a>
+                </Link>
               )
             ) : (
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setOpen(false)}
                 className={
                   link.active === activePath
                     ? "nav-link nav-link-active py-10 text-white"
@@ -129,22 +118,22 @@ export default function Navbar() {
             Get a Quote <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         ) : (
-          <a
-            href="/"
-            onClick={() => handleNavigate('/#contact')}
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
             className="hidden lg:inline-flex min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)]"
           >
             Get a Quote <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          </Link>
         )}
 
         <button
           aria-label={open ? "close menu" : "open menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
-          className="group grid h-10 w-10 place-items-center rounded-full border-2 border-white/30 bg-white/10 text-white transition-all duration-300 hover:border-[var(--smrk-blue)] hover:bg-[var(--smrk-blue)] hover:shadow-[0_0_20px_rgba(6,27,74,0.4)] hover:scale-110 lg:hidden"
+          className="text-white transition-opacity duration-300 hover:opacity-80 lg:hidden"
         >
-          {open ? <X className="transition-transform duration-300 group-hover:rotate-90" /> : <Menu className="transition-transform duration-300 group-hover:scale-110" />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -174,10 +163,10 @@ export default function Navbar() {
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="grid h-10 w-10 place-items-center rounded-full border border-gray-300 bg-gray-100 text-gray-600 transition-all duration-300 hover:bg-gray-200 hover:scale-110"
+              className="text-black transition-opacity duration-300 hover:opacity-70"
               aria-label="close menu"
             >
-              <X className="transition-transform duration-300" />
+              <X size={24} className="transition-transform duration-300" />
             </button>
           </div>
 
@@ -190,7 +179,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleScroll(e, link.href)}
-                    className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-extrabold uppercase transition-all duration-300 hover:bg-gray-100 ${
+                    className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-semibold transition-all duration-300 hover:bg-gray-100 ${
                       link.active === activePath
                         ? 'bg-[var(--smrk-blue)]/10 text-[var(--smrk-blue)]'
                         : 'text-gray-800'
@@ -201,11 +190,11 @@ export default function Navbar() {
                     {link.href === "/products" && <ChevronDown size={13} strokeWidth={3} />}
                   </a>
                 ) : (
-                  <a
+                  <Link
                     key={link.href}
-                    href="/"
-                    onClick={() => handleNavigate(link.href)}
-                    className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-extrabold uppercase transition-all duration-300 hover:bg-gray-100 ${
+                    href={link.page || "/"}
+                    onClick={() => setOpen(false)}
+                    className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-semibold transition-all duration-300 hover:bg-gray-100 ${
                       link.active === activePath
                         ? 'bg-[var(--smrk-blue)]/10 text-[var(--smrk-blue)]'
                         : 'text-gray-800'
@@ -214,14 +203,14 @@ export default function Navbar() {
                   >
                     {link.label}
                     {link.href === "/products" && <ChevronDown size={13} strokeWidth={3} />}
-                  </a>
+                  </Link>
                 )
               ) : (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-extrabold uppercase transition-all duration-300 hover:bg-gray-100 ${
+                  className={`flex min-h-12 items-center justify-between rounded-md px-4 text-[14px] font-semibold transition-all duration-300 hover:bg-gray-100 ${
                     link.active === activePath
                       ? 'bg-[var(--smrk-blue)]/10 text-[var(--smrk-blue)]'
                       : 'text-gray-800'
@@ -240,18 +229,18 @@ export default function Navbar() {
               <a
                 href="/#contact"
                 onClick={(e) => handleScroll(e, '/#contact')}
-                className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full border-2 border-[#061b4a] bg-[#061b4a] px-4 text-[14px] font-black uppercase text-white transition-all duration-300 hover:bg-[#061b4a]/90"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full border-2 bg-[var(--smrk-blue)] bg-[var(--smrk-blue)] px-4 text-[14px] font-black uppercase text-white transition-all duration-300 hover:bg-[#061b4a]/90"
               >
                 Get a Quote <ArrowRight size={16} />
               </a>
             ) : (
-              <a
-                href="/"
-                onClick={() => handleNavigate('/#contact')}
-                className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full border-2 border-[#061b4a] bg-[#061b4a] px-4 text-[14px] font-black uppercase text-white transition-all duration-300 hover:bg-[#061b4a]/90"
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full border-2 bg-[var(--smrk-blue)] bg-[var(--smrk-blue)] px-4 text-[14px] font-black uppercase text-white transition-all duration-300 hover:bg-[#061b4a]/90"
               >
                 Get a Quote <ArrowRight size={16} />
-              </a>
+              </Link>
             )}
           </div>
         </div>
