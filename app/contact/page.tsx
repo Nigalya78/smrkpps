@@ -13,7 +13,7 @@ export default function ContactPage() {
       />
 
       <section className="bg-[var(--smrk-soft)] py-14 md:py-20">
-        <div className="site-container px-4 sm:px-0 grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+        <div className="site-container px-4 sm:px-0 grid items-start gap-8 lg:grid-cols-[0.75fr_1.25fr]">
           <aside className="rounded-[4px] border border-[var(--smrk-line)] bg-white p-6 soft-shadow md:p-7">
             <p className="section-eyebrow">Reach Us</p>
             <h2 className="mt-3 text-[24px] font-bold leading-tight tracking-[-0.02em] md:text-[28px]">Packaging support, ready when you are.</h2>

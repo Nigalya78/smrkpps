@@ -1,4 +1,5 @@
 import { ArrowRight, BadgeCheck, Cog, Headphones, Leaf, Tags, Truck } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import PageHero from "../../components/PageHero";
 
@@ -87,15 +88,29 @@ export default function WhyChooseUsPage() {
       <section className="bg-white py-14 md:py-20">
         <div className="site-container px-4 sm:px-0">
           <div className="rounded-[8px] bg-[var(--smrk-soft)] px-6 py-10 text-left md:px-12 md:py-14">
-            <h2 className="text-[24px] font-bold leading-tight tracking-[-0.02em] md:text-[30px] lg:text-[34px]">
-              Experience the SMRKPPS Difference
-            </h2>
-            <p className="mt-4 max-w-[560px] text-[14px] font-medium leading-7 text-[var(--smrk-ink)] md:text-[15px]">
-              Partner with us for packaging solutions that combine quality, reliability, and value for your business.
-            </p>
-            <Link href="/contact" className="blue-button mt-7 min-w-[180px] md:min-w-[200px]">
-              Get Started <ArrowRight size={18} />
-            </Link>
+            <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.85fr]">
+              <div>
+                <h2 className="text-[24px] font-bold leading-tight tracking-[-0.02em] md:text-[30px] lg:text-[34px]">
+                  Experience the SMRKPPS Difference
+                </h2>
+                <p className="mt-4 max-w-[560px] text-[14px] font-medium leading-7 text-[var(--smrk-ink)] md:text-[15px]">
+                  Partner with us for packaging solutions that combine quality, reliability, and value for your business.
+                </p>
+                <Link href="/contact" className="blue-button mt-7 min-w-[180px] md:min-w-[200px]">
+                  Get Started <ArrowRight size={18} />
+                </Link>
+              </div>
+              <div className="hidden items-center justify-center lg:flex">
+                <Image
+                  src="/contact.png"
+                  alt="Contact SMRK PPS"
+                  width={400}
+                  height={320}
+                  className="h-auto max-h-[240px] w-auto max-w-full object-contain"
+                  sizes="(min-width: 1024px) 35vw, 0vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

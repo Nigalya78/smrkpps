@@ -28,17 +28,15 @@ export default function ContactCTA() {
   return (
     <section id="contact" ref={sectionRef} className="relative bg-[var(--smrk-soft)] py-0">
       <div className="site-container px-4 sm:px-0 grid min-h-[325px] items-center gap-8 md:grid-cols-1 lg:grid-cols-[1fr_1.1fr]">
-        <div className="relative hidden min-h-[325px] lg:block overflow-hidden">
-          <div className={`absolute bottom-0 left-0 h-[230px] w-[190px] rounded-sm bg-[#c88947] shadow-xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
-              <div className="absolute left-1/2 top-12 grid h-24 w-24 -translate-x-1/2 place-items-center rounded-full bg-[var(--smrk-blue)]">
-              <Image src="/logo.png" alt="" width={80} height={37} />
-            </div>
-          </div>
-          <Image src="/products/img4.jpg" alt="Packaging labels" width={260} height={210} className={`absolute bottom-8 left-4 h-36 w-48 rounded-sm object-cover shadow-xl transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`} />
-          <div className={`absolute bottom-5 left-[235px] h-[120px] w-[150px] rounded-sm bg-[#082b72] shadow-xl transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`} />
-          <div className={`absolute bottom-4 left-[395px] h-[90px] w-[130px] rounded-sm bg-white shadow-xl transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
-            <Image src="/products/img1.png" alt="" fill className="object-cover" sizes="130px" />
-          </div>
+        <div className="relative hidden min-h-[325px] items-center justify-center lg:flex overflow-hidden">
+          <Image
+            src="/contact.png"
+            alt="Contact SMRK PPS"
+            width={400}
+            height={325}
+            className={`h-auto max-h-[280px] w-auto max-w-full object-contain transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+            sizes="(min-width: 1024px) 40vw, 0vw"
+          />
         </div>
 
         <div className="relative py-14 md:py-[50px] text-left">

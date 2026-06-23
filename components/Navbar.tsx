@@ -113,7 +113,7 @@ export default function Navbar() {
           <a
             href="/#contact"
             onClick={(e) => handleScroll(e, '/#contact')}
-            className="hidden lg:inline-flex min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)]"
+            className="hidden lg:inline-flex min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-semibold uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)]"
           >
             Get a Quote <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
@@ -121,7 +121,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="hidden lg:inline-flex min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-black uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)]"
+            className="hidden lg:inline-flex min-h-[48px] min-w-[186px] items-center justify-center gap-3 rounded-[7px] border-2 border-white bg-transparent px-6 text-[13px] font-semibold uppercase tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#061b4a] hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)]"
           >
             Get a Quote <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
