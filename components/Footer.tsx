@@ -54,11 +54,7 @@ export default function Footer() {
 
       <div className="site-container flex flex-col justify-between gap-3 border-t border-white/10 px-4 py-4 text-[11px] font-medium text-white/75 sm:flex-row sm:px-0 sm:text-[12px]">
         <p className="whitespace-nowrap">&copy; 2024 SMRKPPS. All Rights Reserved.</p>
-        <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-x-2">
-          <Link href="#" className="whitespace-nowrap hover:text-white">Privacy Policy</Link>
-          <span className="hidden sm:inline px-2">|</span>
-          <Link href="#" className="whitespace-nowrap hover:text-white">Terms & Conditions</Link>
-        </div>
+
       </div>
     </footer>
   );
