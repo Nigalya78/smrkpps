@@ -41,7 +41,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-white"
+      className="relative overflow-hidden bg-white pt-[72px] md:pt-[104px]"
     >
       {/* Background Image - only visible on smaller screens */}
       <div className="absolute inset-0 z-0 lg:hidden">

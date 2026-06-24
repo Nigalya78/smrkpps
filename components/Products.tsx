@@ -6,23 +6,23 @@ import { useState, useEffect, useRef } from "react";
 
 const products = [
   {
-    title: "Product 1",
-    image: "/products/img1.png",
+    title: "Magnifier",
+    image: "/products/img5.png",
     desc: "High-quality packaging solution.",
   },
   {
-    title: "Product 2",
+    title: "Wedges",
     image: "/products/img2.jpg",
     desc: "Durable packaging solution.",
   },
   {
-    title: "Product 3",
+    title: "Eyelets",
     image: "/products/img3.jpg",
     desc: "Premium packaging solution.",
   },
   {
-    title: "Product 4",
-    image: "/products/img4.jpg",
+    title: "Olfa Cutter",
+    image: "/products/img8.jpg",
     desc: "Versatile packaging solution.",
   },
   
