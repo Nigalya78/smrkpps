@@ -6,6 +6,9 @@ import Preloader from "../components/Preloader";
 export const metadata = {
   title: "SMRK - Printing and Packaging Materials Suppliers",
   description: "Packaging Solutions",
+  icons: {
+    icon: "/icon.png", 
+  },
 };
 
 export default function RootLayout({
